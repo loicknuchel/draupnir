@@ -118,7 +118,7 @@ jobs:
       - release-vars
     # Only release if we need to
     if: ${{ needs.need-release.outputs.release == 'true' }}
-    uses: gocardless/github-actions/.github/workflows/go-gorelease.yml@4763f2059fe34efe265ea7cb1ec5f9884c46169d
+    uses: gocardless/github-actions/.github/workflows/go-gorelease.yml@master
     with:
       release_notes: $(git log --pretty=oneline --abbrev-commit --no-decorate --no-color "$(git describe --tags --abbrev=0)..HEAD" -- pkg cmd vendor internal | tee -a /tmp/release-notes)
       repository: ${{ github.repository }}
